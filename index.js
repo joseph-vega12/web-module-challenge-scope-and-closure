@@ -82,7 +82,7 @@ finalScore(inning, 9) might return:
 }
 
 */
-  let home = 0;
+    let home = 0;
     let away = 0;
 function finalScore(inning, num) {
   
@@ -125,15 +125,14 @@ Final Score: awayTeam - homeTeam */
 
   function scoreboard(getInningScore, inning, numOfInnings){
     for(i = 0; i < numOfInnings; i ++){
-      // console.log(home + inning());
-      home + inning();
-      away + inning();
-      // console.log(away + inning());
+      console.log(home += inning());
+      console.log(away += inning());
     }
-    return `Home ${home} - ${away}`;
+    // return `Home ${home} - ${away}`;
+    return `Home ${home} - ${away} Away`
     }
 
-console.log(scoreboard(finalScore, inning, 2));
+console.log(scoreboard(finalScore, inning, 9));
 
 
 
