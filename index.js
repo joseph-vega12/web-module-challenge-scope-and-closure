@@ -82,13 +82,13 @@ finalScore(inning, 9) might return:
 }
 
 */
-
-function finalScore(callback, num) {
   let home = 0;
-  let away = 0;
-  for(let i = 0; i < num; i++) {
-    home +=  callback();
-    away +=  callback();
+    let away = 0;
+function finalScore(inning, num) {
+  
+  for (let i = 0; i < num; i++) {
+    home += inning();
+    away += inning();
   }
   let score = {
     home,
@@ -99,9 +99,13 @@ function finalScore(callback, num) {
 
 console.log(finalScore(inning, 9));
 
-/* Task 4: 
+///////
 
-Create a function called `scoreboard` that accepts the following parameters: 
+
+
+/* Task 4:
+
+Create a function called `scoreboard` that accepts the following parameters:
 
 (1) Callback function `getInningScore`
 (2) Callback function `inning`
@@ -119,7 +123,18 @@ and returns the score at each pont in the game, like so:
 9th inning: awayTeam - homeTeam
 Final Score: awayTeam - homeTeam */
 
+  function scoreboard(getInningScore, inning, numOfInnings){
+    for(i = 0; i < numOfInnings; i ++){
+      // console.log(home + inning());
+      home + inning();
+      away + inning();
+      // console.log(away + inning());
+    }
+    return `Home ${home} - ${away}`;
+    }
 
-function scoreboard(/* CODE HERE */) {
-  /* CODE HERE */
-}
+console.log(scoreboard(finalScore, inning, 2));
+
+
+
+
