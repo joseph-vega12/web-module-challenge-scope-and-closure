@@ -1,5 +1,4 @@
 // ⭐️ Example Challenge START ⭐️
-
 /**
  * ### Challenge `processFirstItem`
  * 
@@ -17,7 +16,6 @@
 function processFirstItem(stringList, callback) {
   return callback(stringList[0])
 }
-
 // ⭐️ Example Challenge END ⭐️
 
 
@@ -28,23 +26,30 @@ function processFirstItem(stringList, callback) {
  * 
  * 1. What is the difference between counter1 and counter2?
  * 
+ *    counter1 is storing the variable in the function not making it accesible to the global scope just inside the function
+ * while counter2 the variable is stores outside the function making it accesible in the global scope.
+ * 
  * 2. Which of the two uses a closure? How can you tell?
  * 
+ *    Counter2 because when an inner references a variable created in the outter scope that is a closure.
+ * 
  * 3. In what scenario would the counter1 code be preferable? In what scenario would counter2 be better? 
- *
+ * 
+ *    A scenerio counter1 would be preffered at would be keeping track of a score of a video game.
 */
 
 // counter1 code
 function counterMaker() {
   let count = 0;
   return function counter() {
-   return count++;
+    return count++;
   }
 }
 
 const counter1 = counterMaker();
 
 // counter2 code
+
 let count = 0;
 
 function counter2() {
@@ -52,15 +57,17 @@ function counter2() {
 }
 
 
+
 /* Task 2: inning() 
 
 Write a function called `inning` that returns a random number of points that a team scored in an inning. This should be a whole number between 0 and 2. */
 
-function inning(/*Code Here*/){
-
-    /*Code Here*/
-
+function inning() {
+  let randomNumber = Math.floor(Math.random() * 3);
+  return randomNumber;
 }
+
+// console.log(inning());
 
 /* Task 3: finalScore()
 
@@ -74,13 +81,23 @@ finalScore(inning, 9) might return:
   "Away": 5,
 }
 
-*/ 
+*/
 
-function finalScore(/*code Here*/){
-
-  /*Code Here*/
-
+function finalScore(callback, num) {
+  let home = 0;
+  let away = 0;
+  for(let i = 0; i < num; i++) {
+    home +=  callback();
+    away +=  callback();
+  }
+  let score = {
+    home,
+    away
+  }
+  return score;
 }
+
+console.log(finalScore(inning, 9));
 
 /* Task 4: 
 
@@ -106,5 +123,3 @@ Final Score: awayTeam - homeTeam */
 function scoreboard(/* CODE HERE */) {
   /* CODE HERE */
 }
-
-
